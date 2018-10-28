@@ -20,7 +20,7 @@ import POGOProtos.Networking.Requests.Messages.CheckAwardedBadgesMessageOuterCla
 import POGOProtos.Networking.Requests.Messages.CheckChallengeMessageOuterClass.CheckChallengeMessage;
 import POGOProtos.Networking.Requests.Messages.DownloadItemTemplatesMessageOuterClass.DownloadItemTemplatesMessage;
 import POGOProtos.Networking.Requests.Messages.DownloadRemoteConfigVersionMessageOuterClass.DownloadRemoteConfigVersionMessage;
-import POGOProtos.Networking.Requests.Messages.DownloadSettingsMessageOuterClass.DownloadSettingsMessage;
+import POGOProtos.Networking.Requests.Messages.DownloadSettingsActionMessageOuterClass.DownloadSettingsActionMessage;
 import POGOProtos.Networking.Requests.Messages.GetAssetDigestMessageOuterClass.GetAssetDigestMessage;
 import POGOProtos.Networking.Requests.Messages.GetBuddyWalkedMessageOuterClass.GetBuddyWalkedMessage;
 import POGOProtos.Networking.Requests.Messages.GetHatchedEggsMessageOuterClass.GetHatchedEggsMessage;
@@ -29,7 +29,7 @@ import POGOProtos.Networking.Requests.Messages.GetIncensePokemonMessageOuterClas
 import POGOProtos.Networking.Requests.RequestTypeOuterClass.RequestType;
 import POGOProtos.Networking.Responses.CheckAwardedBadgesResponseOuterClass.CheckAwardedBadgesResponse;
 import POGOProtos.Networking.Responses.CheckChallengeResponseOuterClass.CheckChallengeResponse;
-import POGOProtos.Networking.Responses.DownloadSettingsResponseOuterClass.DownloadSettingsResponse;
+import POGOProtos.Networking.Responses.DownloadSettingsActionResponseOuterClass.DownloadSettingsActionResponse;
 import POGOProtos.Networking.Responses.GetBuddyWalkedResponseOuterClass.GetBuddyWalkedResponse;
 import POGOProtos.Networking.Responses.GetHatchedEggsResponseOuterClass.GetHatchedEggsResponse;
 import POGOProtos.Networking.Responses.GetHoloInventoryResponseOuterClass.GetHoloInventoryResponse;
@@ -121,7 +121,7 @@ public class CommonRequests {
 			throws InvalidProtocolBufferException, RequestFailedException {
 		if (response.has(RequestType.DOWNLOAD_SETTINGS)) {
 			ByteString data = response.get(RequestType.DOWNLOAD_SETTINGS);
-			DownloadSettingsResponse settings = DownloadSettingsResponse.parseFrom(data);
+			DownloadSettingsActionResponse settings = DownloadSettingsActionResponse.parseFrom(data);
 			api.settings.updateSettings(settings);
 		}
 		if (response.has(RequestType.CHECK_CHALLENGE)) {
@@ -209,7 +209,7 @@ public class CommonRequests {
 	 */
 	public static ServerRequest downloadSettings(PokemonGo api) {
 		String hash = api.settings.hash;
-		DownloadSettingsMessage message = DownloadSettingsMessage.newBuilder().setHash(hash).build();
+		DownloadSettingsActionMessage message = DownloadSettingsActionMessage.newBuilder().setHash(hash).build();
 		return new ServerRequest(RequestType.DOWNLOAD_SETTINGS, message);
 	}
 

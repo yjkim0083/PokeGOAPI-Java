@@ -1,6 +1,6 @@
 package com.pokegoapi.api.settings;
 
-import POGOProtos.Networking.Responses.DownloadSettingsResponseOuterClass.DownloadSettingsResponse;
+import POGOProtos.Networking.Responses.DownloadSettingsActionResponseOuterClass.DownloadSettingsActionResponse;
 import com.pokegoapi.api.PokemonGo;
 import lombok.Getter;
 
@@ -80,7 +80,7 @@ public class Settings {
 	 *
 	 * @param response the settings download response
 	 */
-	public void updateSettings(DownloadSettingsResponse response) {
+	public void updateSettings(DownloadSettingsActionResponse response) {
 		if (response.getSettings().hasMapSettings()) {
 			mapSettings.update(response.getSettings().getMapSettings());
 		}
