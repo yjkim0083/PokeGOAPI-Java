@@ -1,6 +1,6 @@
 package com.pokegoapi.auth;
 
-import POGOProtos.Networking.Envelopes.RequestEnvelopeOuterClass.RequestEnvelope.AuthInfo;
+//import POGOProtos.Networking.Envelopes.RequestEnvelopeOuterClass.RequestEnvelope.AuthInfo;
 import com.pokegoapi.exceptions.request.InvalidCredentialsException;
 import com.pokegoapi.exceptions.request.LoginFailedException;
 import com.pokegoapi.util.SystemTimeImpl;
@@ -107,13 +107,14 @@ public class GoogleAutoCredentialProvider extends CredentialProvider {
 		}
 		return tokenInfo.authToken.getToken();
 	}
+	/*
 
 	/**
 	 * @param refresh if this AuthInfo should be refreshed
 	 * @return auth info
 	 * @throws LoginFailedException if an exception occurs while attempting to log in
 	 * @throws InvalidCredentialsException if invalid credentials are used
-	 */
+	 *
 	@Override
 	public AuthInfo getAuthInfo(boolean refresh) throws LoginFailedException, InvalidCredentialsException {
 		AuthInfo.Builder builder = AuthInfo.newBuilder();
@@ -121,6 +122,7 @@ public class GoogleAutoCredentialProvider extends CredentialProvider {
 		builder.setToken(AuthInfo.JWT.newBuilder().setContents(getTokenId(refresh)).setUnknown2(0).build());
 		return builder.build();
 	}
+	*/
 
 	@Override
 	public boolean isTokenIdInvalid() {

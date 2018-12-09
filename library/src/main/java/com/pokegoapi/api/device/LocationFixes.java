@@ -1,8 +1,8 @@
 package com.pokegoapi.api.device;
 
-import POGOProtos.Networking.Envelopes.RequestEnvelopeOuterClass;
-import POGOProtos.Networking.Envelopes.RequestEnvelopeOuterClass.RequestEnvelope;
-import POGOProtos.Networking.Envelopes.SignatureOuterClass.Signature.LocationFix;
+//import POGOProtos.Networking.Envelopes.RequestEnvelopeOuterClass;
+//import POGOProtos.Networking.Envelopes.RequestEnvelopeOuterClass.RequestEnvelope;
+//import POGOProtos.Networking.Envelopes.SignatureOuterClass.Signature.LocationFix;
 import POGOProtos.Networking.Requests.RequestOuterClass.Request;
 import POGOProtos.Networking.Requests.RequestTypeOuterClass.RequestType;
 import com.pokegoapi.api.PokemonGo;
@@ -15,7 +15,7 @@ import java.util.Random;
 /**
  * Created by fabianterhorst on 23.08.16.
  */
-
+/*
 public class LocationFixes extends ArrayList<LocationFix> {
 
 	@Setter
@@ -38,6 +38,7 @@ public class LocationFixes extends ArrayList<LocationFix> {
 	 * @param random random object
 	 * @return the default device info for the given api
 	 */
+     /*
 	public static LocationFixes getDefault(PokemonGo api, RequestEnvelopeOuterClass.RequestEnvelope.Builder builder,
 			long currentTime, Random random) {
 		if (Double.isNaN(api.latitude) || Double.isNaN(api.longitude)) {
@@ -153,3 +154,5 @@ public class LocationFixes extends ArrayList<LocationFix> {
 		return (float) (lat + dl * 180 / Math.PI);
 	}
 }
+*/
+

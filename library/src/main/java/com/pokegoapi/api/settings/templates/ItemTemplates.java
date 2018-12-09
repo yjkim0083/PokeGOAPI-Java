@@ -92,7 +92,7 @@ public class ItemTemplates {
 	 * @throws RequestFailedException if the page update is not successfully sent
 	 */
 	public void update(PokemonGo api) throws RequestFailedException {
-		updatePage(api, 0, 0, api.currentTimeMillis());
+		updatePage(api, 0, 0, 0/*api.currentTimeMillis()*/);
 		reloadTemplates();
 	}
 
@@ -112,7 +112,7 @@ public class ItemTemplates {
 				.setPageTimestamp(timestamp)
 				.build();
 		ServerRequest request = new ServerRequest(RequestType.DOWNLOAD_ITEM_TEMPLATES, message);
-		api.requestHandler.sendServerRequests(request, true);
+		//api.requestHandler.sendServerRequests(request, true);
 		try {
 			DownloadItemTemplatesResponse response = DownloadItemTemplatesResponse.parseFrom(request.getData());
 			provider.updateTemplates(response, loadTime);

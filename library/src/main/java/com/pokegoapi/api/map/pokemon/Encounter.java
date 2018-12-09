@@ -84,7 +84,7 @@ public class Encounter {
 				.build();
 
 		ServerRequest request = new ServerRequest(RequestType.ENCOUNTER, message);
-		ByteString responseData = api.requestHandler.sendServerRequests(request, true);
+		/*ByteString responseData = api.requestHandler.sendServerRequests(request, true);
 
 		try {
 			EncounterResponse response = EncounterResponse.parseFrom(responseData);
@@ -95,6 +95,7 @@ public class Encounter {
 		} catch (InvalidProtocolBufferException e) {
 			throw new RequestFailedException(e);
 		}
+		*/
 
 		return encounterResult;
 	}
@@ -145,7 +146,7 @@ public class Encounter {
 						.build();
 
 				ServerRequest request = new ServerRequest(RequestType.CATCH_POKEMON, message);
-				ByteString responseData = api.requestHandler.sendServerRequests(request, true);
+				/*ByteString responseData = api.requestHandler.sendServerRequests(request, true);
 
 				try {
 					CatchPokemonResponse response = CatchPokemonResponse.parseFrom(responseData);
@@ -172,6 +173,7 @@ public class Encounter {
 				} catch (InvalidProtocolBufferException e) {
 					throw new RequestFailedException(e);
 				}
+				*/
 			} else {
 				throw new NoSuchItemException();
 			}
@@ -199,7 +201,7 @@ public class Encounter {
 							.build();
 
 					ServerRequest request = new ServerRequest(RequestType.USE_ITEM_ENCOUNTER, message);
-					ByteString responseData = api.requestHandler.sendServerRequests(request, true);
+					/*ByteString responseData = api.requestHandler.sendServerRequests(request, true);
 
 					try {
 						UseItemEncounterResponse response = UseItemEncounterResponse.parseFrom(responseData);
@@ -212,6 +214,7 @@ public class Encounter {
 					} catch (InvalidProtocolBufferException e) {
 						throw new RequestFailedException(e);
 					}
+					*/
 				} else {
 					return UseItemEncounterResponse.Status.ACTIVE_ITEM_EXISTS;
 				}

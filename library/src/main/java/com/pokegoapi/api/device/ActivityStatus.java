@@ -20,7 +20,7 @@ import com.pokegoapi.api.PokemonGo;
 
 import java.util.Random;
 
-import POGOProtos.Networking.Envelopes.SignatureOuterClass;
+//import POGOProtos.Networking.Envelopes.SignatureOuterClass;
 
 /**
  * Created by fabianterhorst on 22.08.16.
@@ -28,10 +28,10 @@ import POGOProtos.Networking.Envelopes.SignatureOuterClass;
 
 public class ActivityStatus {
 
-	private SignatureOuterClass.Signature.ActivityStatus.Builder activityStatusBuilder;
+	//private SignatureOuterClass.Signature.ActivityStatus.Builder activityStatusBuilder;
 
 	public ActivityStatus() {
-		activityStatusBuilder = SignatureOuterClass.Signature.ActivityStatus.newBuilder();
+		//activityStatusBuilder = SignatureOuterClass.Signature.ActivityStatus.newBuilder();
 	}
 
 	/**
@@ -41,6 +41,7 @@ public class ActivityStatus {
 	 * @param random random object
 	 * @return the default activity status for the given api
 	 */
+	/*
 	public static SignatureOuterClass.Signature.ActivityStatus getDefault(PokemonGo api, Random random) {
 		boolean tilting = random.nextInt() % 2 == 0;
 		ActivityStatus activityStatus = api.activityStatus;
@@ -96,11 +97,11 @@ public class ActivityStatus {
 	 *
 	 * @return the activity status builder
 	 */
-	public SignatureOuterClass.Signature.ActivityStatus.Builder getBuilder() {
+	/*public SignatureOuterClass.Signature.ActivityStatus.Builder getBuilder() {
 		return activityStatusBuilder;
 	}
 
 	public SignatureOuterClass.Signature.ActivityStatus getActivityStatus() {
 		return activityStatusBuilder.build();
-	}
+	}*/
 }

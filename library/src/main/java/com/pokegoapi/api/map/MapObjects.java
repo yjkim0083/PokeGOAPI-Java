@@ -175,7 +175,7 @@ public class MapObjects {
 		Set<CatchablePokemon> pokemon = new HashSet<>();
 		for (CatchablePokemon catchable : this.pokemon) {
 			long expirationTime = catchable.expirationTimestampMs;
-			if ((expirationTime == -1 || api.currentTimeMillis() < expirationTime) && !catchable.despawned) {
+			if ((expirationTime == -1 || 0/*api.currentTimeMillis()*/ < expirationTime) && !catchable.despawned) {
 				pokemon.add(catchable);
 			}
 		}

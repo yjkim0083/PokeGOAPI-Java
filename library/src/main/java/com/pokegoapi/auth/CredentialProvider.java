@@ -15,7 +15,7 @@
 
 package com.pokegoapi.auth;
 
-import POGOProtos.Networking.Envelopes.RequestEnvelopeOuterClass.RequestEnvelope.AuthInfo;
+//import POGOProtos.Networking.Envelopes.RequestEnvelopeOuterClass.RequestEnvelope.AuthInfo;
 import com.pokegoapi.exceptions.request.InvalidCredentialsException;
 import com.pokegoapi.exceptions.request.LoginFailedException;
 
@@ -26,7 +26,7 @@ public abstract class CredentialProvider {
 
 	public abstract String getTokenId(boolean refresh) throws LoginFailedException, InvalidCredentialsException;
 
-	public abstract AuthInfo getAuthInfo(boolean refresh) throws LoginFailedException, InvalidCredentialsException;
+	//public abstract AuthInfo getAuthInfo(boolean refresh) throws LoginFailedException, InvalidCredentialsException;
 
 	public abstract boolean isTokenIdInvalid();
 

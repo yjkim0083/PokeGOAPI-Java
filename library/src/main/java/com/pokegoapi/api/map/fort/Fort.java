@@ -104,7 +104,7 @@ public class Fort {
 	 * @return the boolean
 	 */
 	public boolean canLoot(boolean ignoreDistance) {
-		boolean active = cooldownCompleteTimestampMs < api.currentTimeMillis();
+		boolean active = cooldownCompleteTimestampMs < 0 /*api.currentTimeMillis()*/;
 		if (!ignoreDistance) {
 			return active && inRange();
 		}
@@ -139,6 +139,7 @@ public class Fort {
 
 		ServerRequest serverRequest = new ServerRequest(RequestTypeOuterClass.RequestType.FORT_SEARCH,
 				searchMessage);
+		/*
 		return api.requestHandler.sendAsyncServerRequests(serverRequest, true).map(
 				new Func1<ByteString, PokestopLootResult>() {
 					@Override
@@ -160,6 +161,8 @@ public class Fort {
 						return lootResult;
 					}
 				});
+				*/
+		return null;
 	}
 
 	/**
@@ -186,6 +189,7 @@ public class Fort {
 				.setPlayerLongitude(api.longitude)
 				.build();
 		ServerRequest serverRequest = new ServerRequest(RequestType.ADD_FORT_MODIFIER, msg);
+		/*
 		return api.requestHandler.sendAsyncServerRequests(serverRequest).map(new Func1<ByteString, Boolean>() {
 			@Override
 			public Boolean call(ByteString result) {
@@ -197,6 +201,8 @@ public class Fort {
 				}
 			}
 		});
+		*/
+		return  null;
 	}
 
 	/**
@@ -223,6 +229,7 @@ public class Fort {
 
 		ServerRequest serverRequest = new ServerRequest(RequestTypeOuterClass.RequestType.FORT_DETAILS,
 				reqMsg);
+		/*
 		return api.requestHandler.sendAsyncServerRequests(serverRequest, true).map(
 				new Func1<ByteString, FortDetails>() {
 					@Override
@@ -236,6 +243,8 @@ public class Fort {
 						return new FortDetails(response);
 					}
 				});
+				*/
+		return  null;
 	}
 
 

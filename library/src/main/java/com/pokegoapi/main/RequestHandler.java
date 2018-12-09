@@ -16,12 +16,12 @@
 package com.pokegoapi.main;
 
 import POGOProtos.Networking.Envelopes.AuthTicketOuterClass.AuthTicket;
-import POGOProtos.Networking.Envelopes.RequestEnvelopeOuterClass.RequestEnvelope;
-import POGOProtos.Networking.Envelopes.RequestEnvelopeOuterClass.RequestEnvelope.PlatformRequest;
-import POGOProtos.Networking.Envelopes.RequestEnvelopeOuterClass.RequestEnvelope.PlatformRequest.Builder;
-import POGOProtos.Networking.Envelopes.ResponseEnvelopeOuterClass.ResponseEnvelope;
-import POGOProtos.Networking.Envelopes.ResponseEnvelopeOuterClass.ResponseEnvelope.PlatformResponse;
-import POGOProtos.Networking.Envelopes.ResponseEnvelopeOuterClass.ResponseEnvelope.StatusCode;
+//import POGOProtos.Networking.Envelopes.RequestEnvelopeOuterClass.RequestEnvelope;
+//import POGOProtos.Networking.Envelopes.RequestEnvelopeOuterClass.RequestEnvelope.PlatformRequest;
+//import POGOProtos.Networking.Envelopes.RequestEnvelopeOuterClass.RequestEnvelope.PlatformRequest.Builder;
+//import POGOProtos.Networking.Envelopes.ResponseEnvelopeOuterClass.ResponseEnvelope;
+//import POGOProtos.Networking.Envelopes.ResponseEnvelopeOuterClass.ResponseEnvelope.PlatformResponse;
+//import POGOProtos.Networking.Envelopes.ResponseEnvelopeOuterClass.ResponseEnvelope.StatusCode;
 import POGOProtos.Networking.Requests.RequestOuterClass.Request;
 import POGOProtos.Networking.Requests.RequestTypeOuterClass.RequestType;
 import POGOProtos.Networking.Responses.GetPlayerResponseOuterClass.GetPlayerResponse;
@@ -53,7 +53,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
-
+/*
 public class RequestHandler implements Runnable {
 	private static final String API_ENDPOINT = "https://pgorelease.nianticlabs.com/plfe/rpc";
 	private static final int THROTTLE = 350;
@@ -74,7 +74,7 @@ public class RequestHandler implements Runnable {
 	 *
 	 * @param api the api
 	 * @param client the client
-	 */
+	 *
 	public RequestHandler(PokemonGo api, OkHttpClient client) {
 		this.api = api;
 		this.client = client;
@@ -90,7 +90,7 @@ public class RequestHandler implements Runnable {
 	 *
 	 * @param envelope the envelope to send
 	 * @return ServerResponse response to be processed in the future
-	 */
+	 *
 	public Observable<ServerResponse> sendAsyncServerRequests(ServerRequestEnvelope envelope) {
 		workQueue.offer(envelope);
 		return envelope.observable();
@@ -101,7 +101,7 @@ public class RequestHandler implements Runnable {
 	 *
 	 * @param request the request to send
 	 * @return the result from this request
-	 */
+	 *
 	public Observable<ByteString> sendAsyncServerRequests(final ServerRequest request) {
 		return sendAsyncServerRequests(request, true);
 	}
@@ -112,7 +112,7 @@ public class RequestHandler implements Runnable {
 	 * @param request the request to send
 	 * @param commons whether this request should include commons
 	 * @return the result from this request
-	 */
+	 *
 	public Observable<ByteString> sendAsyncServerRequests(final ServerRequest request, boolean commons) {
 		ServerRequestEnvelope envelope = ServerRequestEnvelope.create(request, api, commons);
 		return sendAsyncServerRequests(envelope).map(new Func1<ServerResponse, ByteString>() {
@@ -133,7 +133,7 @@ public class RequestHandler implements Runnable {
 	 * @param envelope list of ServerRequests to be sent
 	 * @return the server response
 	 * @throws RequestFailedException if an exception occurred while sending requests
-	 */
+	 *
 	public ServerResponse sendServerRequests(ServerRequestEnvelope envelope)
 			throws RequestFailedException {
 		return AsyncHelper.toBlocking(sendAsyncServerRequests(envelope));
@@ -145,7 +145,7 @@ public class RequestHandler implements Runnable {
 	 * @param request the request to send
 	 * @return the result from this request
 	 * @throws RequestFailedException if an exception occurred while sending requests
-	 */
+	 *
 	public ByteString sendServerRequests(ServerRequest request)
 			throws RequestFailedException {
 		return sendServerRequests(request, true);
@@ -158,7 +158,7 @@ public class RequestHandler implements Runnable {
 	 * @param commons whether this request should include commons
 	 * @return the result from this request
 	 * @throws RequestFailedException if an exception occurred while sending requests
-	 */
+	 *
 	public ByteString sendServerRequests(ServerRequest request, boolean commons)
 			throws RequestFailedException {
 		ServerRequestEnvelope envelope = ServerRequestEnvelope.create(request, api, commons);
@@ -170,6 +170,7 @@ public class RequestHandler implements Runnable {
 		}
 	}
 
+	/*
 	/**
 	 * Builds and sends a request envelope
 	 *
@@ -177,7 +178,7 @@ public class RequestHandler implements Runnable {
 	 * @param requests list of ServerRequests to be sent
 	 * @param platformRequests list of ServerPlatformRequests to be sent
 	 * @throws RequestFailedException if this request fails to send
-	 */
+	 *
 	private ServerResponse sendInternal(ServerResponse serverResponse, ServerRequest[] requests,
 			ServerPlatformRequest[] platformRequests)
 			throws RequestFailedException {
@@ -195,6 +196,7 @@ public class RequestHandler implements Runnable {
 	 * @param builder the request envelope builder
 	 * @throws RequestFailedException if this message fails to send
 	 */
+	/*
 	private ServerResponse sendInternal(ServerResponse serverResponse, ServerRequest[] requests,
 			ServerPlatformRequest[] platformRequests, RequestEnvelope.Builder builder)
 			throws RequestFailedException {
@@ -348,6 +350,7 @@ public class RequestHandler implements Runnable {
 		builder.setAccuracy(accuracy);
 	}
 
+
 	@Override
 	public void run() {
 		long lastRequest = api.currentTimeMillis();
@@ -427,7 +430,8 @@ public class RequestHandler implements Runnable {
 	 * @param requests the requests list
 	 * @param request the request to add
 	 * @return the added request
-	 */
+	 *
+
 	private ServerRequest addRequest(ServerRequestEnvelope envelope, List<ServerRequest> requests,
 			ServerRequest request) {
 		List<RequestInterceptor> interceptors = api.getListeners(RequestInterceptor.class);
@@ -448,8 +452,9 @@ public class RequestHandler implements Runnable {
 
 	/**
 	 * Stops this RequestHandler
-	 */
+	 *
 	public void exit() {
 		active = false;
 	}
 }
+*/

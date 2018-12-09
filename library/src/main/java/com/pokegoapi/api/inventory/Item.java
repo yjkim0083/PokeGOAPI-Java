@@ -142,7 +142,7 @@ public class Item {
 	 * @return if this item is applied / active
 	 */
 	public boolean isApplied() {
-		return api.currentTimeMillis() <= appliedExpiration && applied;
+		return 0/*api.currentTimeMillis()*/ <= appliedExpiration && applied;
 	}
 
 	/**

@@ -88,7 +88,7 @@ public class Map {
 			builder.addSinceTimestampMs(0);
 		}
 		ServerRequest request = new ServerRequest(RequestType.GET_MAP_OBJECTS, builder.build());
-		api.requestHandler.sendServerRequests(request, true);
+		//api.requestHandler.sendServerRequests(request, true);
 		try {
 			long updateTime = mapUpdateTime;
 			GetMapObjectsResponse response = GetMapObjectsResponse.parseFrom(request.getData());

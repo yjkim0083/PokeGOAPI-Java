@@ -15,7 +15,7 @@
 
 package com.pokegoapi.auth;
 
-import POGOProtos.Networking.Envelopes.RequestEnvelopeOuterClass.RequestEnvelope.AuthInfo;
+//import POGOProtos.Networking.Envelopes.RequestEnvelopeOuterClass.RequestEnvelope.AuthInfo;
 import com.pokegoapi.exceptions.request.InvalidCredentialsException;
 import com.pokegoapi.exceptions.request.LoginFailedException;
 import com.pokegoapi.util.SystemTimeImpl;
@@ -57,7 +57,7 @@ public class PtcCredentialProvider extends CredentialProvider {
 	protected final Time time;
 	protected String tokenId;
 	protected long expiresTimestamp;
-	protected AuthInfo.Builder authbuilder;
+	//protected AuthInfo.Builder authbuilder;
 
 	protected SecureRandom random = new SecureRandom();
 
@@ -114,7 +114,7 @@ public class PtcCredentialProvider extends CredentialProvider {
 				})
 				.build();
 
-		authbuilder = AuthInfo.newBuilder();
+		//authbuilder = AuthInfo.newBuilder();
 		login(username, password, 0);
 	}
 
@@ -244,6 +244,7 @@ public class PtcCredentialProvider extends CredentialProvider {
 		return tokenId;
 	}
 
+	/*
 	/**
 	 * Valid auth info object	 *
 	 *
@@ -251,7 +252,7 @@ public class PtcCredentialProvider extends CredentialProvider {
 	 * @return AuthInfo a AuthInfo proto structure to be encapsulated in server requests
 	 * @throws LoginFailedException if an exception occurs while attempting to log in
 	 * @throws InvalidCredentialsException if invalid credentials are used
-	 */
+	 *
 	@Override
 	public AuthInfo getAuthInfo(boolean refresh) throws LoginFailedException, InvalidCredentialsException {
 		if (refresh || isTokenIdInvalid()) {
@@ -263,6 +264,7 @@ public class PtcCredentialProvider extends CredentialProvider {
 
 		return authbuilder.build();
 	}
+	*/
 
 	@Override
 	public boolean isTokenIdInvalid() {

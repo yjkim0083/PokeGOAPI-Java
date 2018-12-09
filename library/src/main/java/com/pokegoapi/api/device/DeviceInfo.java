@@ -15,7 +15,7 @@
 
 package com.pokegoapi.api.device;
 
-import POGOProtos.Networking.Envelopes.SignatureOuterClass;
+//import POGOProtos.Networking.Envelopes.SignatureOuterClass;
 import com.pokegoapi.api.PokemonGo;
 
 import java.util.Random;
@@ -43,6 +43,7 @@ public class DeviceInfo {
 			"11.0", "11.1", "11.2", "11.2.5", "11.3.0"
 	};
 
+	/*
 	private SignatureOuterClass.Signature.DeviceInfo.Builder deviceInfoBuilder;
 
 	public DeviceInfo() {
@@ -54,6 +55,7 @@ public class DeviceInfo {
 	 *
 	 * @param deviceInfos the device infos interface
 	 */
+	/*
 	public DeviceInfo(DeviceInfos deviceInfos) {
 		this();
 		deviceInfoBuilder
@@ -90,6 +92,7 @@ public class DeviceInfo {
 	 * @param api the api
 	 * @return the default device info for the given api
 	 */
+	/*
 	public static DeviceInfo getDefault(PokemonGo api) {
 		DeviceInfo deviceInfo = new DeviceInfo();
 		Random random = new Random(api.seed);
@@ -120,6 +123,7 @@ public class DeviceInfo {
 	 *
 	 * @param androidBoardName AndroidBoardName, for example: "angler"
 	 */
+	/*
 	public void setAndroidBoardName(String androidBoardName) {
 		deviceInfoBuilder.setAndroidBoardName(androidBoardName);
 	}
@@ -132,6 +136,7 @@ public class DeviceInfo {
 	 *
 	 * @param androidBootloader AndroidBootloader, for example: "angler-03.58"
 	 */
+	/*
 	public void setAndroidBootloader(String androidBootloader) {
 		deviceInfoBuilder.setAndroidBootloader(androidBootloader);
 	}
@@ -144,6 +149,7 @@ public class DeviceInfo {
 	 *
 	 * @param deviceBrand DeviceBrand, for example: "google"
 	 */
+	/*
 	public void setDeviceBrand(String deviceBrand) {
 		deviceInfoBuilder.setDeviceBrand(deviceBrand);
 	}
@@ -156,6 +162,7 @@ public class DeviceInfo {
 	 *
 	 * @param deviceId DeviceId, for example: "****************"
 	 */
+	/*
 	public void setDeviceId(String deviceId) {
 		deviceInfoBuilder.setDeviceId(deviceId);
 	}
@@ -168,6 +175,7 @@ public class DeviceInfo {
 	 *
 	 * @param deviceModel DeviceModel, for example: "Nexus 6P"
 	 */
+	/*
 	public void setDeviceModel(String deviceModel) {
 		deviceInfoBuilder.setDeviceModel(deviceModel);
 	}
@@ -180,6 +188,7 @@ public class DeviceInfo {
 	 *
 	 * @param deviceModelBoot DeviceModelBoot, for example: "qcom"
 	 */
+	/*
 	public void setDeviceModelBoot(String deviceModelBoot) {
 		deviceInfoBuilder.setDeviceModelBoot(deviceModelBoot);
 	}
@@ -192,6 +201,7 @@ public class DeviceInfo {
 	 *
 	 * @param deviceModelIdentifier DeviceModelIdentifier, for example: "angler"
 	 */
+	/*
 	public void setDeviceModelIdentifier(String deviceModelIdentifier) {
 		deviceInfoBuilder.setDeviceModelIdentifier(deviceModelIdentifier);
 	}
@@ -204,6 +214,7 @@ public class DeviceInfo {
 	 *
 	 * @param firmwareBrand FirmwareBrand, for example: "angler"
 	 */
+	/*
 	public void setFirmwareBrand(String firmwareBrand) {
 		deviceInfoBuilder.setFirmwareBrand(firmwareBrand);
 	}
@@ -217,6 +228,7 @@ public class DeviceInfo {
 	 * @param firmwareFingerprint FirmwareFingerprint,
 	 *     for example: "google/angler/angler:7.0/NPD90G/3051502:user/release-keys"
 	 */
+	/*
 	public void setFirmwareFingerprint(String firmwareFingerprint) {
 		deviceInfoBuilder.setFirmwareFingerprint(firmwareFingerprint);
 	}
@@ -229,6 +241,7 @@ public class DeviceInfo {
 	 *
 	 * @param firmwareTags FirmwareTags, for example: "release-keys"
 	 */
+	/*
 	public void setFirmwareTags(String firmwareTags) {
 		deviceInfoBuilder.setFirmwareTags(firmwareTags);
 	}
@@ -241,6 +254,7 @@ public class DeviceInfo {
 	 *
 	 * @param firmwareType FirmwareType, for example: "user"
 	 */
+	/*
 	public void setFirmwareType(String firmwareType) {
 		deviceInfoBuilder.setFirmwareType(firmwareType);
 	}
@@ -253,6 +267,7 @@ public class DeviceInfo {
 	 *
 	 * @param hardwareManufacturer HardwareManufacturer, for example: "Huawei"
 	 */
+	/*
 	public void setHardwareManufacturer(String hardwareManufacturer) {
 		deviceInfoBuilder.setHardwareManufacturer(hardwareManufacturer);
 	}
@@ -265,6 +280,7 @@ public class DeviceInfo {
 	 *
 	 * @param hardwareModel HardwareModel, for example: "Nexus 6P"
 	 */
+	/*
 	public void setHardwareModel(String hardwareModel) {
 		deviceInfoBuilder.setHardwareModel(hardwareModel);
 	}
@@ -274,6 +290,7 @@ public class DeviceInfo {
 	 *
 	 * @return the device info builder
 	 */
+	/*
 	public SignatureOuterClass.Signature.DeviceInfo.Builder getBuilder() {
 		return deviceInfoBuilder;
 	}
@@ -283,7 +300,7 @@ public class DeviceInfo {
 	 *
 	 * @return DeviceInfo
 	 */
-	public SignatureOuterClass.Signature.DeviceInfo getDeviceInfo() {
+	/*public SignatureOuterClass.Signature.DeviceInfo getDeviceInfo() {
 		return deviceInfoBuilder.build();
-	}
+	}*/
 }

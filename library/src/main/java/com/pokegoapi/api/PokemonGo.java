@@ -16,8 +16,8 @@
 package com.pokegoapi.api;
 
 import POGOProtos.Enums.TutorialStateOuterClass.TutorialState;
-import POGOProtos.Networking.Envelopes.RequestEnvelopeOuterClass.RequestEnvelope.AuthInfo;
-import POGOProtos.Networking.Envelopes.SignatureOuterClass;
+//import POGOProtos.Networking.Envelopes.RequestEnvelopeOuterClass.RequestEnvelope.AuthInfo;
+//import POGOProtos.Networking.Envelopes.SignatureOuterClass;
 import POGOProtos.Networking.Platform.PlatformRequestTypeOuterClass.PlatformRequestType;
 import POGOProtos.Networking.Platform.Requests.GetStoreItemsRequestOuterClass.GetStoreItemsRequest;
 import POGOProtos.Networking.Requests.Messages.CheckChallengeMessageOuterClass.CheckChallengeMessage;
@@ -36,8 +36,8 @@ import com.google.protobuf.ByteString;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.pokegoapi.api.device.ActivityStatus;
 import com.pokegoapi.api.device.DeviceInfo;
-import com.pokegoapi.api.device.LocationFixes;
-import com.pokegoapi.api.device.SensorInfo;
+//import com.pokegoapi.api.device.LocationFixes;
+//import com.pokegoapi.api.device.SensorInfo;
 import com.pokegoapi.api.inventory.Inventories;
 import com.pokegoapi.api.listener.Listener;
 import com.pokegoapi.api.listener.LocationListener;
@@ -54,7 +54,7 @@ import com.pokegoapi.auth.CredentialProvider;
 import com.pokegoapi.exceptions.request.RequestFailedException;
 import com.pokegoapi.main.CommonRequests;
 import com.pokegoapi.main.Heartbeat;
-import com.pokegoapi.main.RequestHandler;
+//import com.pokegoapi.main.RequestHandler;
 import com.pokegoapi.main.ServerPlatformRequest;
 import com.pokegoapi.main.ServerRequest;
 import com.pokegoapi.main.ServerRequestEnvelope;
@@ -76,14 +76,14 @@ import java.util.UUID;
 
 public class PokemonGo {
 	private static final java.lang.String TAG = PokemonGo.class.getSimpleName();
-	private final Time time;
+	//private final Time time;
 	private News news;
 	@Getter
 	public long startTime;
 	@Getter
 	public final byte[] sessionHash = new byte[32];
-	@Getter
-	public RequestHandler requestHandler;
+	//@Getter
+	//public RequestHandler requestHandler;
 	@Getter
 	public PlayerProfile playerProfile;
 	@Getter
@@ -104,18 +104,18 @@ public class PokemonGo {
 	private Map map;
 	@Setter
 	private DeviceInfo deviceInfo;
-	@Getter
-	@Setter
-	public SensorInfo sensorInfo;
+	//@Getter
+	//@Setter
+	//public SensorInfo sensorInfo;
 	@Getter
 	@Setter
 	public ActivityStatus activityStatus;
 	@Setter
 	@Getter
 	public long seed;
-	@Getter
-	@Setter
-	public LocationFixes locationFixes;
+	//@Getter
+	//@Setter
+	//public LocationFixes locationFixes;
 	@Setter
 	private boolean hasChallenge;
 	@Getter
@@ -163,7 +163,7 @@ public class PokemonGo {
 	 * @param seed   the seed to generate same device
 	 */
 	public PokemonGo(OkHttpClient client, Time time, long seed) {
-		this.time = time;
+		//this.time = time;
 		this.seed = seed;
 		reset();
 		this.client = client.newBuilder()
@@ -190,7 +190,7 @@ public class PokemonGo {
 	 * @param time   a time implementation
 	 */
 	public PokemonGo(OkHttpClient client, Time time) {
-		this(client, time, hash(UUID.randomUUID().toString()));
+		//this(client, time, hash(UUID.randomUUID().toString()));
 	}
 
 	/**
@@ -200,7 +200,7 @@ public class PokemonGo {
 	 * @param client the http client
 	 */
 	public PokemonGo(OkHttpClient client) {
-		this(client, new SystemTimeImpl(), hash(UUID.randomUUID().toString()));
+		//this(client, new SystemTimeImpl(), hash(UUID.randomUUID().toString()));
 	}
 
 	/**
@@ -227,8 +227,8 @@ public class PokemonGo {
 		this.credentialProvider = credentialProvider;
 		this.hashProvider = hashProvider;
 
-		startTime = currentTimeMillis();
-		initialize();
+		//startTime = currentTimeMillis();
+		//initialize();
 	}
 
 	private void reset() {
@@ -245,6 +245,7 @@ public class PokemonGo {
 		latitude = Double.NaN;
 	}
 
+	/*
 	private void initialize() throws RequestFailedException {
 		if (requestHandler != null) {
 			requestHandler.exit();
@@ -354,7 +355,7 @@ public class PokemonGo {
 	 * Second requests block. Public since it could be re-fired at any time
 	 *
 	 * @throws RequestFailedException if an exception occurred while sending requests
-	 */
+	 *
 	public void getAssetDigest() throws RequestFailedException {
 		GetAssetDigestMessage message = CommonRequests.getGetAssetDigestMessageRequest(this);
 		ServerRequest request = new ServerRequest(RequestType.GET_ASSET_DIGEST, message);
@@ -366,7 +367,7 @@ public class PokemonGo {
 	 *
 	 * @param string string to hash
 	 * @return the hashed long
-	 */
+	 *
 	private static long hash(String string) {
 		long upper = ((long) string.hashCode()) << 32;
 		int len = string.length();
@@ -379,13 +380,13 @@ public class PokemonGo {
 		return upper + lower;
 	}
 
-	/**
+	/*
 	 * Fetches valid AuthInfo
 	 *
 	 * @param refresh if the AuthInfo object should be refreshed
 	 * @return AuthInfo object
 	 * @throws RequestFailedException if an exception occurred while sending requests
-	 */
+	 *
 	public AuthInfo getAuthInfo(boolean refresh)
 			throws RequestFailedException {
 		return credentialProvider.getAuthInfo(refresh);
@@ -417,6 +418,7 @@ public class PokemonGo {
 		this.accuracy = accuracy;
 	}
 
+	/*
 	public long currentTimeMillis() {
 		return time.currentTimeMillis();
 	}
@@ -489,12 +491,14 @@ public class PokemonGo {
 	 *
 	 * @return the device info
 	 */
+	/*
 	public SignatureOuterClass.Signature.DeviceInfo getDeviceInfo() {
 		if (deviceInfo == null) {
 			deviceInfo = DeviceInfo.getDefault(this);
 		}
 		return deviceInfo.getDeviceInfo();
 	}
+	*/
 
 	/**
 	 * Gets the sensor info
@@ -503,12 +507,14 @@ public class PokemonGo {
 	 * @param random      the random object
 	 * @return the sensor info
 	 */
+	/*
 	public SignatureOuterClass.Signature.SensorInfo getSensorSignature(long currentTime, Random random) {
 		if (this.sensorInfo == null || sensorInfo.timestampCreate != 0L) {
 			return SensorInfo.getDefault(this, currentTime, random);
 		}
 		return sensorInfo.getSensorInfo();
 	}
+	*
 
 	/**
 	 * Gets the activity status
@@ -516,12 +522,14 @@ public class PokemonGo {
 	 * @param random the random object
 	 * @return the activity status
 	 */
+	/*
 	public SignatureOuterClass.Signature.ActivityStatus getActivitySignature(Random random) {
 		if (this.activityStatus == null) {
 			return ActivityStatus.getDefault(this, random);
 		}
 		return activityStatus.getActivityStatus();
 	}
+	*/
 
 	/**
 	 * Sets the item template provider for this api instance
@@ -638,29 +646,31 @@ public class PokemonGo {
 		hasChallenge = false;
 		VerifyChallengeMessage message = VerifyChallengeMessage.newBuilder().setToken(token).build();
 		ServerRequest request = new ServerRequest(RequestType.VERIFY_CHALLENGE, message);
-		ByteString responseData = requestHandler.sendServerRequests(request, true);
+		//ByteString responseData = requestHandler.sendServerRequests(request, true);
 		try {
-			VerifyChallengeResponse response = VerifyChallengeResponse.parseFrom(responseData);
-			hasChallenge = !response.getSuccess();
+			//VerifyChallengeResponse response = VerifyChallengeResponse.parseFrom(responseData);
+			//hasChallenge = !response.getSuccess();
 			if (!hasChallenge) {
 				challengeURL = null;
 				synchronized (challengeLock) {
 					challengeLock.notifyAll();
 				}
 			}
-			return response.getSuccess();
-		} catch (InvalidProtocolBufferException e) {
+			//return response.getSuccess();
+			return  false;
+		} catch (Exception e) {
 			throw new RequestFailedException(e);
 		}
 	}
 
+	/*
 	/**
 	 * Checks for a challenge / captcha
 	 *
 	 * @return the new challenge URL, if any
 	 * @throws RequestFailedException if an exception occurred while sending requests
 	 * @deprecated CHECK_CHALLENGE is sent as a common request, should not be needed
-	 */
+	 *
 	@Deprecated
 	public String checkChallenge() throws RequestFailedException {
 		CheckChallengeMessage message = CheckChallengeMessage.newBuilder().build();
@@ -712,7 +722,7 @@ public class PokemonGo {
 	public void exit() {
 		if (active) {
 			heartbeat.exit();
-			requestHandler.exit();
+			//requestHandler.exit();
 			active = false;
 			reset();
 		}

@@ -78,7 +78,7 @@ public class EggIncubator {
 				.build();
 
 		ServerRequest serverRequest = new ServerRequest(RequestType.USE_ITEM_EGG_INCUBATOR, reqMsg);
-		api.requestHandler.sendServerRequests(serverRequest, true);
+		//api.requestHandler.sendServerRequests(serverRequest, true);
 
 		UseItemEggIncubatorResponse response;
 		try {

@@ -91,7 +91,7 @@ public class ItemBag {
 				.build();
 
 		ServerRequest serverRequest = new ServerRequest(RequestType.RECYCLE_INVENTORY_ITEM, msg);
-		api.requestHandler.sendServerRequests(serverRequest, true);
+		//api.requestHandler.sendServerRequests(serverRequest, true);
 
 		RecycleInventoryItemResponse response;
 		try {
@@ -203,7 +203,7 @@ public class ItemBag {
 						.build();
 
 		ServerRequest useIncenseRequest = new ServerRequest(RequestType.USE_INCENSE, useIncenseMessage);
-		api.requestHandler.sendServerRequests(useIncenseRequest, true);
+		//api.requestHandler.sendServerRequests(useIncenseRequest, true);
 
 		try {
 			UseIncenseResponse response = UseIncenseResponse.parseFrom(useIncenseRequest.getData());
@@ -237,7 +237,7 @@ public class ItemBag {
 				.build();
 
 		ServerRequest req = new ServerRequest(RequestType.USE_ITEM_XP_BOOST, xpMsg);
-		api.requestHandler.sendServerRequests(req, true);
+		//api.requestHandler.sendServerRequests(req, true);
 
 		try {
 			UseItemXpBoostResponse response = UseItemXpBoostResponse.parseFrom(req.getData());

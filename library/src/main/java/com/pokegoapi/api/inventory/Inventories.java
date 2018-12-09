@@ -120,7 +120,7 @@ public class Inventories {
 				.setLastTimestampMs(lastInventoryUpdate)
 				.build();
 		ServerRequest inventoryRequest = new ServerRequest(RequestType.GET_HOLOHOLO_INVENTORY, invReqMsg);
-		api.requestHandler.sendServerRequests(inventoryRequest, false);
+		//api.requestHandler.sendServerRequests(inventoryRequest, false);
 
 		GetHoloInventoryResponse response;
 		try {
@@ -139,7 +139,7 @@ public class Inventories {
 	 * @throws RequestFailedException if a request fails while sending a request
 	 */
 	public void updateInventories(GetHoloInventoryResponse response) throws RequestFailedException {
-		lastInventoryUpdate = api.currentTimeMillis();
+		lastInventoryUpdate = 0 /*api.currentTimeMillis()*/;
 
 		for (InventoryItem inventoryItem : response.getInventoryDelta().getInventoryItemsList()) {
 			
@@ -208,7 +208,7 @@ public class Inventories {
 			for (Map.Entry<ItemId, AppliedItem> entry : appliedItems.entrySet()) {
 				ItemId itemId = entry.getKey();
 				AppliedItem applied = entry.getValue();
-				if (api.currentTimeMillis() >= applied.getExpireMs()) {
+				if (0 /*api.currentTimeMillis()*/ >= applied.getExpireMs()) {
 					stale.add(itemId);
 				} else {
 					Item item = itemBag.getItem(itemId);

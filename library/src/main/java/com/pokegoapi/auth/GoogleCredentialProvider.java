@@ -15,7 +15,7 @@
 
 package com.pokegoapi.auth;
 
-import POGOProtos.Networking.Envelopes.RequestEnvelopeOuterClass.RequestEnvelope.AuthInfo;
+//import POGOProtos.Networking.Envelopes.RequestEnvelopeOuterClass.RequestEnvelope.AuthInfo;
 import com.pokegoapi.exceptions.request.InvalidCredentialsException;
 import com.pokegoapi.exceptions.request.LoginFailedException;
 import com.pokegoapi.util.Log;
@@ -54,7 +54,7 @@ public class GoogleCredentialProvider extends CredentialProvider {
 	@Getter
 	private String refreshToken;
 
-	private AuthInfo.Builder authbuilder;
+	//private AuthInfo.Builder authbuilder;
 
 	/**
 	 * Used for logging in when one has a persisted refreshToken.
@@ -70,7 +70,7 @@ public class GoogleCredentialProvider extends CredentialProvider {
 		this.refreshToken = refreshToken;
 		onGoogleLoginOAuthCompleteListener = null;
 		refreshToken(refreshToken);
-		authbuilder = AuthInfo.newBuilder();
+		//authbuilder = AuthInfo.newBuilder();
 	}
 
 	/**
@@ -91,7 +91,7 @@ public class GoogleCredentialProvider extends CredentialProvider {
 			throw new LoginFailedException("You need to implement OnGoogleLoginOAuthCompleteListener");
 		}
 		login();
-		authbuilder = AuthInfo.newBuilder();
+		//authbuilder = AuthInfo.newBuilder();
 	}
 
 	/**
@@ -246,7 +246,7 @@ public class GoogleCredentialProvider extends CredentialProvider {
 		}
 		return tokenId;
 	}
-
+	/*
 	/**
 	 * Refreshes tokenId if it has expired
 	 *
@@ -254,7 +254,7 @@ public class GoogleCredentialProvider extends CredentialProvider {
 	 * @return AuthInfo object
 	 * @throws LoginFailedException if an exception occurs while attempting to log in
 	 * @throws InvalidCredentialsException if invalid credentials are used
-	 */
+	 *
 	@Override
 	public AuthInfo getAuthInfo(boolean refresh) throws LoginFailedException, InvalidCredentialsException {
 		if (refresh || isTokenIdInvalid()) {
@@ -264,6 +264,7 @@ public class GoogleCredentialProvider extends CredentialProvider {
 		authbuilder.setToken(AuthInfo.JWT.newBuilder().setContents(tokenId).setUnknown2(0).build());
 		return authbuilder.build();
 	}
+	*/
 
 	@Override
 	public boolean isTokenIdInvalid() {

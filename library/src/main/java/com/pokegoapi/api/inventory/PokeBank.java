@@ -165,7 +165,7 @@ public class PokeBank {
 		ServerRequest releaseRequest = new ServerRequest(RequestType.RELEASE_POKEMON, releaseBuilder.build());
 		ServerRequestEnvelope envelope = ServerRequestEnvelope.createCommons(releaseRequest, api);
 		Map<PokemonFamilyId, Integer> lastCandies = new HashMap<>(api.inventories.candyjar.getCandies());
-		ServerResponse response = api.requestHandler.sendServerRequests(envelope);
+		/*ServerResponse response = api.requestHandler.sendServerRequests(envelope);
 		try {
 			ByteString inventoryData = response.get(RequestType.GET_HOLOHOLO_INVENTORY);
 			GetHoloInventoryResponse inventoryResponse = GetHoloInventoryResponse.parseFrom(inventoryData);
@@ -197,6 +197,8 @@ public class PokeBank {
 		} catch (InvalidProtocolBufferException e) {
 			throw new RequestFailedException(e);
 		}
+		*/
+		return null;
 	}
 
 	/**

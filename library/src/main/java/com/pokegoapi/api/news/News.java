@@ -77,17 +77,19 @@ public class News {
 			ServerRequest request = new ServerRequest(RequestTypeOuterClass.RequestType.MARK_READ_NEWS_ARTICLE, msg);
 			ServerRequestEnvelope envelope = ServerRequestEnvelope.create(request);
 			try {
-				api.requestHandler.sendServerRequests(envelope);
+				//api.requestHandler.sendServerRequests(envelope);
 				MarkReadNewsArticleResponse response = MarkReadNewsArticleResponse.parseFrom(request.getData());
 				if (response.getResult() == MarkReadNewsArticleResponse.Result.SUCCESS) {
 					Log.i(TAG, "Mark News Article -> success");
 				} else {
 					Log.w(TAG, "Mark News Article -> !success");
 				}
-			} catch (RequestFailedException e) {
+			} /*catch (RequestFailedException e) {
 				e.printStackTrace();
 				Log.e(TAG, "RequestFailedException: cause:" + e.getCause() + " message:" + e.getMessage());
-			} catch (InvalidProtocolBufferException e) {
+			}
+			*/
+			catch (InvalidProtocolBufferException e) {
 				e.printStackTrace();
 				Log.e(TAG, "InvalidProtocolBufferException: cause:" + e.getCause() + " message:" + e.getMessage());
 			}

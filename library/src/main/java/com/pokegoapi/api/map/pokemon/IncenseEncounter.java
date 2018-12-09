@@ -28,7 +28,7 @@ public class IncenseEncounter extends Encounter {
 				.build();
 
 		ServerRequest request = new ServerRequest(RequestType.INCENSE_ENCOUNTER, message);
-		ByteString responseData = api.requestHandler.sendServerRequests(request, true);
+		/*ByteString responseData = api.requestHandler.sendServerRequests(request, true);
 
 		try {
 			IncenseEncounterResponse response = IncenseEncounterResponse.parseFrom(responseData);
@@ -39,6 +39,7 @@ public class IncenseEncounter extends Encounter {
 		} catch (InvalidProtocolBufferException e) {
 			throw new RequestFailedException(e);
 		}
+		*/
 
 		return encounterResult;
 	}

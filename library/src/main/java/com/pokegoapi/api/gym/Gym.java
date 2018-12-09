@@ -124,7 +124,7 @@ public class Gym extends Fort implements MapPoint {
 					.build();
 
 			ServerRequest serverRequest = new ServerRequest(RequestType.GYM_GET_INFO, reqMsg);
-			api.requestHandler.sendServerRequests(serverRequest, true);
+			//api.requestHandler.sendServerRequests(serverRequest, true);
 
 			try {
 				details = GymGetInfoResponse.parseFrom(serverRequest.getData());
@@ -177,7 +177,7 @@ public class Gym extends Fort implements MapPoint {
 				.build();
 
 		ServerRequest serverRequest = new ServerRequest(RequestType.FORT_DEPLOY_POKEMON, reqMsg);
-		api.requestHandler.sendServerRequests(serverRequest, true);
+		//api.requestHandler.sendServerRequests(serverRequest, true);
 
 		try {
 			return FortDeployPokemonResponse.parseFrom(serverRequest.getData()).getResult();
@@ -204,6 +204,7 @@ public class Gym extends Fort implements MapPoint {
 				.build();
 
 		ServerRequest asyncServerRequest = new ServerRequest(RequestType.FORT_DEPLOY_POKEMON, reqMsg);
+		/*
 		return api.requestHandler
 				.sendAsyncServerRequests(asyncServerRequest)
 				.map(new Func1<ByteString, FortDeployPokemonResponse.Result>() {
@@ -220,6 +221,8 @@ public class Gym extends Fort implements MapPoint {
 					}
 
 				});
+				*/
+		return  null;
 
 	}
 

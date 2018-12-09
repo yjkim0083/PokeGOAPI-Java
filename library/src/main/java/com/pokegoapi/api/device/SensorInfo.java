@@ -15,7 +15,7 @@
 
 package com.pokegoapi.api.device;
 
-import POGOProtos.Networking.Envelopes.SignatureOuterClass;
+//import POGOProtos.Networking.Envelopes.SignatureOuterClass;
 import com.pokegoapi.api.PokemonGo;
 import lombok.Getter;
 import lombok.Setter;
@@ -25,7 +25,7 @@ import java.util.Random;
 /**
  * Created by fabianterhorst on 08.08.16.
  */
-
+/*
 public class SensorInfo {
 
 	private SignatureOuterClass.Signature.SensorInfo.Builder sensorInfoBuilder;
@@ -43,6 +43,7 @@ public class SensorInfo {
 	 *
 	 * @param sensorInfos the sensor infos interface
 	 */
+/*
 	public SensorInfo(SensorInfos sensorInfos) {
 		this();
 		sensorInfoBuilder
@@ -71,6 +72,7 @@ public class SensorInfo {
 	 * @param random random object
 	 * @return the default sensor info for the given api
 	 */
+/*
 	public static SignatureOuterClass.Signature.SensorInfo getDefault(PokemonGo api, long currentTime, Random random) {
 		SensorInfo sensorInfo;
 		if (api.sensorInfo == null) {
@@ -120,6 +122,7 @@ public class SensorInfo {
 	 *
 	 * @param timestampSnapshot timestamp in ms since app start
 	 */
+/*
 	public void setTimestampSnapshot(long timestampSnapshot) {
 		sensorInfoBuilder.setTimestampSnapshot(timestampSnapshot);
 	}
@@ -129,6 +132,7 @@ public class SensorInfo {
 	 *
 	 * @param status sensor info status (always 3)
 	 */
+/*
 	public void setStatus(int status) {
 		sensorInfoBuilder.setStatus(status);
 	}
@@ -138,6 +142,7 @@ public class SensorInfo {
 	 *
 	 * @param linearAccelerationX linear acceleration x
 	 */
+/*
 	public void setLinearAccelerationX(double linearAccelerationX) {
 		sensorInfoBuilder.setLinearAccelerationX(linearAccelerationX);
 	}
@@ -147,6 +152,7 @@ public class SensorInfo {
 	 *
 	 * @param linearAccelerationY linear acceleration y
 	 */
+/*
 	public void setLinearAccelerationY(double linearAccelerationY) {
 		sensorInfoBuilder.setLinearAccelerationY(linearAccelerationY);
 	}
@@ -156,6 +162,7 @@ public class SensorInfo {
 	 *
 	 * @param linearAccelerationZ linear acceleration z
 	 */
+/*
 	public void setLinearAccelerationZ(double linearAccelerationZ) {
 		sensorInfoBuilder.setLinearAccelerationZ(linearAccelerationZ);
 	}
@@ -165,6 +172,7 @@ public class SensorInfo {
 	 *
 	 * @param gravityX gravity x
 	 */
+/*
 	public void setGravityX(double gravityX) {
 		sensorInfoBuilder.setGravityX(gravityX);
 	}
@@ -174,6 +182,7 @@ public class SensorInfo {
 	 *
 	 * @param gravityY gravity y
 	 */
+/*
 	public void setGravityY(double gravityY) {
 		sensorInfoBuilder.setGravityY(gravityY);
 	}
@@ -183,6 +192,7 @@ public class SensorInfo {
 	 *
 	 * @param gravityZ gravity z
 	 */
+/*
 	public void setGravityZ(double gravityZ) {
 		sensorInfoBuilder.setGravityZ(gravityZ);
 	}
@@ -192,6 +202,7 @@ public class SensorInfo {
 	 *
 	 * @param rotationRateX rotation rate x
 	 */
+/*
 	public void setRotationRateX(double rotationRateX) {
 		sensorInfoBuilder.setRotationRateX(rotationRateX);
 	}
@@ -201,6 +212,7 @@ public class SensorInfo {
 	 *
 	 * @param rotationRateY rotation rate y
 	 */
+/*
 	public void setRotationRateY(double rotationRateY) {
 		sensorInfoBuilder.setRotationRateY(rotationRateY);
 	}
@@ -210,6 +222,7 @@ public class SensorInfo {
 	 *
 	 * @param rotationRateZ rotation rate z
 	 */
+/*
 	public void setRotationRateZ(double rotationRateZ) {
 		sensorInfoBuilder.setRotationRateZ(rotationRateZ);
 	}
@@ -219,6 +232,7 @@ public class SensorInfo {
 	 *
 	 * @param attitudePitch attitude pitch (x axis)
 	 */
+/*
 	public void setAttitudePitch(double attitudePitch) {
 		sensorInfoBuilder.setAttitudePitch(attitudePitch);
 	}
@@ -228,6 +242,7 @@ public class SensorInfo {
 	 *
 	 * @param attitudeYaw attitude yaw (y axis)
 	 */
+/*
 	public void setAttitudeYaw(double attitudeYaw) {
 		sensorInfoBuilder.setAttitudeYaw(attitudeYaw);
 	}
@@ -237,6 +252,7 @@ public class SensorInfo {
 	 *
 	 * @param attitudeRoll attitude roll (z axis)
 	 */
+/*
 	public void setAttitudeRoll(double attitudeRoll) {
 		sensorInfoBuilder.setAttitudeRoll(attitudeRoll);
 	}
@@ -250,7 +266,10 @@ public class SensorInfo {
 	 *
 	 * @return SensorInfo
 	 */
+/*
 	public SignatureOuterClass.Signature.SensorInfo getSensorInfo() {
 		return sensorInfoBuilder.build();
 	}
+
 }
+*/

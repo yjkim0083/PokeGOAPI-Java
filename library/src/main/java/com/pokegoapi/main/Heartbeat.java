@@ -80,7 +80,7 @@ public class Heartbeat {
 		maxMapRefresh = (long) mapSettings.maxRefresh;
 
 		List<HeartbeatListener> listeners = api.getListeners(HeartbeatListener.class);
-		long time = api.currentTimeMillis();
+		long time = 0;//api.currentTimeMillis();
 		boolean updatingMap;
 		synchronized (lock) {
 			updatingMap = this.updatingMap;

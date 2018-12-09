@@ -158,7 +158,7 @@ public class Battle {
 			public void run() {
 				while (active || battleId == null) {
 					if (battleId != null) {
-						updateBattle(handler);
+						//updateBattle(handler);
 					}
 					try {
 						Thread.sleep(10);
@@ -186,7 +186,7 @@ public class Battle {
 		lastRetrievedAction = null;
 		queuedActions.clear();
 		battleState = BattleState.STATE_UNSET;
-		lastServerTime = api.currentTimeMillis();
+		//lastServerTime = api.currentTimeMillis();
 		lastSendTime = lastServerTime;
 		sentActions = false;
 
@@ -219,7 +219,7 @@ public class Battle {
 				StartGymBattleMessage message = builder.build();
 				ServerRequest request = new ServerRequest(RequestType.GYM_START_SESSION, message);
 
-				api.requestHandler.sendServerRequests(request, true);
+				//api.requestHandler.sendServerRequests(request, true);
 				StartGymBattleResponse response = StartGymBattleResponse.parseFrom(request.getData());
 
 				if (response.getResult() == StartGymBattleResponse.Result.SUCCESS) {
@@ -249,9 +249,9 @@ public class Battle {
 	 * Performs a tick for this battle
 	 *
 	 * @param handler to handle this battle
-	 */
+	 *
 	private void updateBattle(BattleHandler handler) {
-		long time = api.currentTimeMillis();
+		//long time = api.currentTimeMillis();
 		while (serverActionQueue.size() > 0) {
 			ServerAction action = serverActionQueue.element();
 			if (time >= action.start) {
@@ -310,7 +310,7 @@ public class Battle {
 	 * @return if this battle should move on to the next defender
 	 */
 	private boolean updateLog(BattleHandler handler, BattleLog log) {
-		serverTimeOffset = log.getServerMs() - api.currentTimeMillis();
+		//serverTimeOffset = log.getServerMs() - api.currentTimeMillis();
 		battleType = log.getBattleType();
 		startTime = log.getBattleStartTimestampMs();
 		endTime = log.getBattleEndTimestampMs();
@@ -578,7 +578,7 @@ public class Battle {
 		if (builder.getAttackActionsCount() > 0) {
 			AttackGymMessage message = builder.build();
 			ServerRequest request = new ServerRequest(RequestType.GYM_BATTLE_ATTACK, message);
-			api.requestHandler.sendServerRequests(request, true);
+			//api.requestHandler.sendServerRequests(request, true);
 			boolean nextDefender;
 			try {
 				AttackGymResponse response = AttackGymResponse.parseFrom(request.getData());
@@ -693,9 +693,9 @@ public class Battle {
 	 * @return the action performed
 	 */
 	public ClientAction performAction(BattleActionType type, int duration) {
-		ClientAction action = new ClientAction(type, api.currentTimeMillis(), duration);
-		queuedActions.add(action);
-		return action;
+		//ClientAction action = new ClientAction(type, api.currentTimeMillis(), duration);
+		//queuedActions.add(action);
+		return null; //action;
 	}
 
 	/**
@@ -708,10 +708,10 @@ public class Battle {
 		PokemonMove move = pokemon.getMove1();
 		MoveSettingsOuterClass.MoveSettings moveSettings = api.itemTemplates.getMoveSettings(move);
 		int duration = moveSettings.getDurationMs();
-		long time = api.currentTimeMillis();
-		ClientAction action = new ClientAction(BattleActionType.ACTION_ATTACK, time, duration);
-		action.setDamageWindow(moveSettings.getDamageWindowStartMs(), moveSettings.getDamageWindowEndMs());
-		queuedActions.add(action);
+		//long time = api.currentTimeMillis();
+		//ClientAction action = new ClientAction(BattleActionType.ACTION_ATTACK, time, duration);
+		//action.setDamageWindow(moveSettings.getDamageWindowStartMs(), moveSettings.getDamageWindowEndMs());
+		//queuedActions.add(action);
 		return duration;
 	}
 
@@ -726,7 +726,7 @@ public class Battle {
 		MoveSettingsOuterClass.MoveSettings moveSettings = api.itemTemplates.getMoveSettings(move);
 		int duration = moveSettings.getDurationMs();
 		if (activeAttacker.energy >= -moveSettings.getEnergyDelta()) {
-			long time = api.currentTimeMillis();
+			long time = 0;//api.currentTimeMillis();
 			ClientAction action = new ClientAction(BattleActionType.ACTION_SPECIAL_ATTACK, time, duration);
 			action.setDamageWindow(moveSettings.getDamageWindowStartMs(), moveSettings.getDamageWindowEndMs());
 			queuedActions.add(action);
@@ -755,7 +755,7 @@ public class Battle {
 	 */
 	public int swap(Pokemon pokemon) {
 		int duration = api.itemTemplates.battleSettings.getSwapDurationMs();
-		ClientAction action = new ClientAction(BattleActionType.ACTION_SWAP_POKEMON, api.currentTimeMillis(),
+		ClientAction action = new ClientAction(BattleActionType.ACTION_SWAP_POKEMON, 0 /*api.currentTimeMillis()*/,
 				duration);
 		action.pokemon = pokemon;
 		queuedActions.add(action);
@@ -766,7 +766,7 @@ public class Battle {
 	 * @return the time left for this battle before it times out
 	 */
 	public long getTimeLeft() {
-		return endTime - api.currentTimeMillis();
+		return endTime - 0 /* api.currentTimeMillis()*/;
 	}
 
 	public class ServerAction {

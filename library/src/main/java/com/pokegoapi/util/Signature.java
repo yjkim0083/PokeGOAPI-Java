@@ -15,16 +15,16 @@
 
 package com.pokegoapi.util;
 
-import POGOProtos.Networking.Envelopes.RequestEnvelopeOuterClass.RequestEnvelope;
-import POGOProtos.Networking.Envelopes.SignatureOuterClass;
+//import POGOProtos.Networking.Envelopes.RequestEnvelopeOuterClass.RequestEnvelope;
+//import POGOProtos.Networking.Envelopes.SignatureOuterClass;
 import POGOProtos.Networking.Platform.PlatformRequestTypeOuterClass.PlatformRequestType;
 import POGOProtos.Networking.Platform.Requests.SendEncryptedSignatureRequestOuterClass.SendEncryptedSignatureRequest;
 import POGOProtos.Networking.Platform.Requests.UnknownPtr8RequestOuterClass;
 import POGOProtos.Networking.Requests.RequestTypeOuterClass.RequestType;
 import com.google.protobuf.ByteString;
 import com.pokegoapi.api.PokemonGo;
-import com.pokegoapi.api.device.LocationFixes;
-import com.pokegoapi.api.device.SensorInfo;
+//import com.pokegoapi.api.device.LocationFixes;
+//import com.pokegoapi.api.device.SensorInfo;
 import com.pokegoapi.exceptions.request.RequestFailedException;
 import com.pokegoapi.util.hash.Hash;
 import com.pokegoapi.util.hash.HashProvider;
@@ -35,14 +35,14 @@ import java.util.Random;
 
 public class Signature {
 	private static final Random RANDOM = new Random();
-
+	/*
 	/**
 	 * Given a fully built request, set the signature correctly.
 	 *
 	 * @param api the api
 	 * @param builder the RequestEnvelope builder
 	 * @throws RequestFailedException if an invalid request is sent
-	 */
+	 *
 	public static void setSignature(PokemonGo api, RequestEnvelope.Builder builder) throws RequestFailedException {
 		boolean usePtr8 = false;
 		byte[][] requestData = new byte[builder.getRequestsCount()][];
@@ -130,4 +130,5 @@ public class Signature {
 					.setRequestMessage(ptr8).build());
 		}
 	}
+	*/
 }

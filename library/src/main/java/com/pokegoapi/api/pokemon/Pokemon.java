@@ -85,7 +85,7 @@ public class Pokemon extends PokemonDetails {
 		ReleasePokemonMessage reqMsg = ReleasePokemonMessage.newBuilder().setPokemonId(getId()).build();
 
 		ServerRequest serverRequest = new ServerRequest(RequestType.RELEASE_POKEMON, reqMsg);
-		api.requestHandler.sendServerRequests(serverRequest, true);
+		//api.requestHandler.sendServerRequests(serverRequest, true);
 
 		ReleasePokemonResponse response;
 		try {
@@ -116,7 +116,7 @@ public class Pokemon extends PokemonDetails {
 				.build();
 
 		ServerRequest serverRequest = new ServerRequest(RequestType.NICKNAME_POKEMON, reqMsg);
-		api.requestHandler.sendServerRequests(serverRequest, true);
+		//api.requestHandler.sendServerRequests(serverRequest, true);
 
 		NicknamePokemonResponse response;
 		try {
@@ -148,7 +148,7 @@ public class Pokemon extends PokemonDetails {
 				.build();
 
 		ServerRequest serverRequest = new ServerRequest(RequestType.SET_FAVORITE_POKEMON, reqMsg);
-		api.requestHandler.sendServerRequests(serverRequest, true);
+		//api.requestHandler.sendServerRequests(serverRequest, true);
 
 		SetFavoritePokemonResponse response;
 		try {
@@ -222,6 +222,7 @@ public class Pokemon extends PokemonDetails {
 		UpgradePokemonMessage reqMsg = UpgradePokemonMessage.newBuilder().setPokemonId(getId()).build();
 		ServerRequest serverRequest = new ServerRequest(RequestType.UPGRADE_POKEMON, reqMsg);
 
+		/*
 		return api.requestHandler.sendAsyncServerRequests(serverRequest, true).map(
 				new Func1<ByteString, UpgradePokemonResponse.Result>() {
 					@Override
@@ -237,6 +238,8 @@ public class Pokemon extends PokemonDetails {
 						return response.getResult();
 					}
 				});
+				*/
+		return  null;
 	}
 
 	/**
@@ -266,7 +269,7 @@ public class Pokemon extends PokemonDetails {
 		}
 
 		ServerRequest serverRequest = new ServerRequest(RequestType.EVOLVE_POKEMON, messageBuilder.build());
-		api.requestHandler.sendServerRequests(serverRequest, true);
+		//api.requestHandler.sendServerRequests(serverRequest, true);
 
 		EvolvePokemonResponse response;
 		try {
@@ -347,7 +350,7 @@ public class Pokemon extends PokemonDetails {
 				.build();
 
 		ServerRequest serverRequest = new ServerRequest(RequestType.USE_ITEM_POTION, reqMsg);
-		api.requestHandler.sendServerRequests(serverRequest, true);
+		//api.requestHandler.sendServerRequests(serverRequest, true);
 
 		UseItemPotionResponse response;
 		try {
@@ -405,7 +408,7 @@ public class Pokemon extends PokemonDetails {
 				.build();
 
 		ServerRequest serverRequest = new ServerRequest(RequestType.USE_ITEM_REVIVE, reqMsg);
-		api.requestHandler.sendServerRequests(serverRequest, true);
+		//api.requestHandler.sendServerRequests(serverRequest, true);
 
 		UseItemReviveResponse response;
 		try {

@@ -30,7 +30,7 @@ public class DiskEncounter extends Encounter {
 				.build();
 
 		ServerRequest request = new ServerRequest(RequestType.DISK_ENCOUNTER, message);
-		ByteString responseData = api.requestHandler.sendServerRequests(request, true);
+		/*ByteString responseData = api.requestHandler.sendServerRequests(request, true);
 
 		try {
 			DiskEncounterResponse response = DiskEncounterResponse.parseFrom(responseData);
@@ -41,6 +41,7 @@ public class DiskEncounter extends Encounter {
 		} catch (InvalidProtocolBufferException e) {
 			throw new RequestFailedException(e);
 		}
+		*/
 
 		return encounterResult;
 	}

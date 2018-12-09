@@ -55,7 +55,7 @@ public class Path {
 	 * @return the total time it will take for this path to complete
 	 */
 	public long start(PokemonGo api) {
-		startTime = api.currentTimeMillis();
+		startTime = 0; //api.currentTimeMillis();
 		endTime = startTime + totalTime;
 		complete = false;
 		return totalTime;
@@ -72,7 +72,7 @@ public class Path {
 			this.complete = true;
 			return this.destination;
 		}
-		long time = Math.min(api.currentTimeMillis(), endTime) - startTime;
+		long time = Math.min(/*api.currentTimeMillis()*/ 0, endTime) - startTime;
 		if (time >= totalTime) {
 			this.complete = true;
 		}
@@ -91,7 +91,7 @@ public class Path {
 	 * @return the amount of millis left before this path completes
 	 */
 	public long getTimeLeft(PokemonGo api) {
-		return Math.max(0, endTime - api.currentTimeMillis());
+		return Math.max(0, endTime - 0); //api.currentTimeMillis());
 	}
 
 	/**
